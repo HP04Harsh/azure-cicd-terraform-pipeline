@@ -8,21 +8,19 @@ pipeline {
 
     stages {
 
-        stage('Azure Login') {
+        stage('Set Azure Credentials') {
             steps {
                 withCredentials([
-                    string(credentialsId: 'azure-client-id', variable: 'CLIENT_ID'),
-                    string(credentialsId: 'azure-client-secret', variable: 'CLIENT_SECRET'),
-                    string(credentialsId: 'azure-tenant-id', variable: 'TENANT_ID'),
-                    string(credentialsId: 'azure-subscription-id', variable: 'SUBSCRIPTION_ID')
+                    string(credentialsId: 'azure-client-id', variable: 'ARM_CLIENT_ID'),
+                    string(credentialsId: 'azure-client-secret', variable: 'ARM_CLIENT_SECRET'),
+                    string(credentialsId: 'azure-tenant-id', variable: 'ARM_TENANT_ID'),
+                    string(credentialsId: 'azure-subscription-id', variable: 'ARM_SUBSCRIPTION_ID')
                 ]) {
                     sh '''
-                    az login --service-principal \
-                    -u $CLIENT_ID \
-                    -p $CLIENT_SECRET \
-                    --tenant $TENANT_ID
-
-                    az account set --subscription $SUBSCRIPTION_ID
+                    export ARM_CLIENT_ID=$ARM_CLIENT_ID
+                    export ARM_CLIENT_SECRET=$ARM_CLIENT_SECRET
+                    export ARM_TENANT_ID=$ARM_TENANT_ID
+                    export ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID
                     '''
                 }
             }
@@ -83,11 +81,10 @@ pipeline {
             steps {
                 sh '''
                 echo "Checking website..."
-                curl http://$VM_IP
+                curl -I http://$VM_IP
                 '''
             }
         }
-
     }
 
     post {

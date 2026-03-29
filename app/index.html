@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gondia-Maharahstra</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="A concise introduction to Gondia, Maharashtra — overview, history, culture, geography, economy and tourism highlights.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <div class="logo">Gondia</div>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#history">History</a>
+        <a href="#culture">Culture</a>
+        <a href="#tourism">Tourism</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Gondia</h1>
+        <p class="lead">Discover Gondia — a serene district in eastern Maharashtra known for its forests, culture, and warm communities.</p>
+        <a class="cta" href="#about">Learn More</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Overview of Gondia</h2>
+        <p>Gondia is a district in the state of Maharashtra, India. Often called the "Rice Bowl of Maharashtra", it blends rich agricultural landscapes with forested areas and a mix of tribal and settled communities. Gondia is known for its warm hospitality and cultural festivals that reflect a diverse heritage.</p>
+      </div>
+    </section>
+
+    <section id="history" class="section">
+      <div class="container">
+        <h2>History</h2>
+        <p>Gondia's history is shaped by its geographical location near several important trade routes and the presence of tribal Gond communities from which it derives its name.</p>
+
+        <div class="accordion">
+          <details>
+            <summary>Early history</summary>
+            <p>Historically home to tribal groups and small principalities, the region later came under the influence of Maratha and British administrations. Local oral histories emphasize the role of forest resources and traditional livelihoods.</p>
+          </details>
+
+          <details>
+            <summary>Colonial period</summary>
+            <p>Under British rule, railways and administrative structures were introduced. Agricultural expansion and market integration increased during this period.</p>
+          </details>
+
+          <details>
+            <summary>Modern era</summary>
+            <p>Post-independence, Gondia evolved with improved connectivity and governance, focusing on rice cultivation, forestry management, and preserving local cultures.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="culture" class="section">
+      <div class="container">
+        <h2>Culture & Festivals</h2>
+        <p>Gondia's cultural life is a blend of tribal traditions and mainstream Maharashtrian customs. Festivals including Ganesh Chaturthi, Diwali and local tribal events are celebrated with music, dance and community gatherings. Folk arts, traditional crafts and cuisine form an important part of daily life.</p>
+      </div>
+    </section>
+
+    <section id="geography" class="section pale">
+      <div class="container">
+        <h2>Geography</h2>
+        <p>Gondia sits in eastern Maharashtra near the border with Chhattisgarh. The district features low hills, fertile plains and significant forest cover—part of the region's charm and environmental value.</p>
+      </div>
+    </section>
+
+    <section id="economy" class="section">
+      <div class="container">
+        <h2>Economy</h2>
+        <p>Agriculture—especially paddy cultivation—drives Gondia's economy. Forestry, small-scale industries, and growing services contribute to livelihoods. Local markets trade agricultural produce and traditional crafts.</p>
+      </div>
+    </section>
+
+    <section id="tourism" class="section">
+      <div class="container">
+        <h2>Tourism Highlights</h2>
+        <p>Gondia offers natural retreats and cultural experiences. Explore forests, local markets, religious sites, and community festivals. The card highlights below outline some places and experiences worth visiting.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Famous Forests</h3>
+            <p>Dense patches of forest with diverse flora and fauna — ideal for nature walks and birdwatching.</p>
+          </article>
+
+          <article class="card">
+            <h3>Local Markets</h3>
+            <p>Bustling bazaars where you can find rice varieties, local produce and handcrafted goods.</p>
+          </article>
+
+          <article class="card">
+            <h3>Religious Sites</h3>
+            <p>Temples and community shrines that reflect the region's spiritual life and architectural simplicity.</p>
+          </article>
+
+          <article class="card">
+            <h3>Festivals & Events</h3>
+            <p>Seasonal festivals offer insights into local music, dance, and cuisine.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you'd like more information about Gondia or wish to plan a visit, send a message using the form below.</p>
+
+        <form class="contact-form" onsubmit="return false;">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message"></textarea>
+
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Gondia</strong>
+        <p>Introduction & highlights</p>
+      </div>
+      <div class="quick-links">
+        <h4>Quick links</h4>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#history">History</a>
+          <a href="#tourism">Tourism</a>
+        </nav>
+      </div>
+      <div>
+        <p>© <span id="year"></span> Gondia Guide. All rights reserved.</p>
+         <p>🧑‍💻 <span id="year"></span> Design, Develop and Automated by Harsh with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Small enhancement: fill footer year and toggle nav on small screens
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>

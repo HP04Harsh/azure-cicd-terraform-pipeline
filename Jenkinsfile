@@ -6,6 +6,8 @@ pipeline {
         APP_DIR = "app"
     }
 
+    stages {
+
         stage('Azure Login') {
             steps {
                 withCredentials([
@@ -85,6 +87,7 @@ pipeline {
                 '''
             }
         }
+
     }
 
     post {

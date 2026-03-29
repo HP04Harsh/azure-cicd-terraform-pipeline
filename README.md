@@ -1,3 +1,6 @@
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/1877dae7-cfb5-4dd3-b85e-f237cd6864d8" />
+
+
 Mega Automation Project
 =======================
 

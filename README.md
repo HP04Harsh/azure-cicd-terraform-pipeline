@@ -1,52 +1,91 @@
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/1877dae7-cfb5-4dd3-b85e-f237cd6864d8" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/0fd49852-5c69-4e05-899c-3dfc6fc47b86" />
 
 
-Mega Automation Project
-=======================
 
-Overview
---------
+🚀 Azure End-to-End Automation: Terraform & Jenkins CI/CD
+=========================================================
 
-The Mega Automation Project is a complete end-to-end DevOps implementation that automates infrastructure provisioning and application deployment on Microsoft Azure using Jenkins and Terraform. The project demonstrates how modern DevOps practices can be used to build a fully automated pipeline from code commit to production deployment.
+This repository demonstrates a complete **Infrastructure as Code (IaC)** and **Continuous Integration/Continuous Deployment (CI/CD)** pipeline. It automates the provisioning of cloud infrastructure on **Microsoft Azure** and the deployment of a web application using **Jenkins** and **Terraform**.
 
-Objective
----------
+🏗️ Architecture Overview
+-------------------------
 
-The primary objective of this project is to design a CI/CD pipeline that eliminates manual intervention by automating infrastructure creation, configuration, and application deployment in a cloud environment.
+The pipeline follows a modern DevOps workflow to eliminate manual environment setup:
 
-Workflow
---------
+1.  **Code Commit:** Developer pushes code to GitHub.
+    
+2.  **Orchestration:** Jenkins detects the push via Webhooks/Polling.
+    
+3.  **IaC Provisioning:** Terraform initializes and applies configurations to create:
+    
+    *   Virtual Network (VNet) & Subnets
+        
+    *   Network Security Groups (NSG) for port 80/22 access.
+        
+    *   Azure Virtual Machine (Ubuntu).
+        
+4.  **Configuration:** A startup script installs the Apache Web Server during the VM boot process.
+    
+5.  **App Deployment:** Jenkins uses SSH to transfer application files (HTML/CSS) to the web server directory.
+    
 
-The workflow begins when code is pushed to GitHub. Jenkins detects the change and triggers a pipeline execution. The pipeline uses Terraform to provision Azure infrastructure, including a virtual machine, networking components, and security configurations. During the provisioning phase, Apache is installed automatically on the VM using a startup script.
+🛠️ Tech Stack
+--------------
 
-Once the infrastructure is successfully created, Jenkins connects to the virtual machine using SSH and deploys the application files (HTML and CSS) to the Apache web server. The deployed application becomes accessible through the public IP address of the virtual machine.
+**Category Technology**
 
-Tech Stack
-----------
+**Cloud Provider** [Microsoft Azure](https://azure.microsoft.com/)
 
-The project leverages Terraform for infrastructure as code, Jenkins for CI/CD automation, Microsoft Azure as the cloud provider, and Apache as the web server. Secure authentication is implemented using an Azure Service Principal, while SSH key-based authentication is used for secure communication with the virtual machine.
+**Infrastructure** [Terraform (HCL)](https://www.terraform.io/)
 
-Key Features
-------------
+**CI/CD Tool** [Jenkins](https://www.jenkins.io/)
 
-This project includes automated infrastructure provisioning, secure authentication using Service Principal and SSH keys, a fully automated CI/CD pipeline, and seamless deployment of a static web application to a cloud-hosted server.
+**Web Server** Apache (HTTPD)
 
-Prerequisites
--------------
+**Scripting** Bash
 
-To execute this project, the following prerequisites are required: an active Azure account, a configured Jenkins server, Terraform installed on the system, Git for version control, and an SSH key pair for secure access.
+🔑 Key Features
+---------------
 
-Execution
----------
+*   **Automated Infrastructure:** Zero-touch provisioning of networking and compute resources.
+    
+*   **Security First:** Uses Azure Service Principals for Terraform authentication and SSH keys for secure VM access.
+    
+*   **Idempotent Deployments:** Terraform ensures the infrastructure state is maintained and consistent.
+    
+*   **Seamless CI/CD:** A single Jenkinsfile manages the entire lifecycle from terraform plan to app deployment.
+    
 
-After configuring the required credentials in Jenkins, the pipeline can be triggered either manually or automatically through a GitHub push event. Upon successful execution, the pipeline provisions all required resources, deploys the application, and makes it accessible via a public URL.
+🚀 Getting Started
+------------------
 
-Learning Outcomes
------------------
+### Prerequisites
 
-This project provides hands-on experience with real-world DevOps challenges, including Terraform authentication using Service Principal, Jenkins pipeline structuring, environment variable management, and secure deployment practices in a cloud environment.
+*   An **Azure Subscription** and a Service Principal (Client ID, Secret, Tenant ID).
+    
+*   **Jenkins Server** with Terraform and Pipeline plugins installed.
+    
+*   **Terraform CLI** installed on the Jenkins agent.
+    
 
-Author
-------
+### Setup & Execution
 
-Harsh Pardhi
+1.  Bashgit clone https://github.com/HP04Harsh/azure-cicd-terraform-pipeline.git
+    
+2.  Add your Azure Service Principal and SSH private keys to the Jenkins Credentials Provider.
+    
+3.  Create a "Pipeline" project in Jenkins pointing to the Jenkinsfile in this repo and click **Build Now**.
+    
+
+📈 Learning Outcomes
+--------------------
+
+Through this project, I gained hands-on experience in:
+
+*   Managing **Terraform State** and provider authentication.
+    
+*   Writing complex **Jenkins Pipelines** as Code.
+    
+*   Automating cloud networking (VNets, Public IPs, and Security Rules).
+    
+*   Troubleshooting SSH-based deployment triggers in automated environments.
